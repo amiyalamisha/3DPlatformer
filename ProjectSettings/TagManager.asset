@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - wall
+  - Ebounds
   layers:
   - Default
   - TransparentFX
