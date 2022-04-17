@@ -8,7 +8,6 @@ public class EnemyBehavior : MonoBehaviour
     Rigidbody rigid;
 
     [SerializeField] float speed = 4.0f;
-    [SerializeField] float gravity = 20.0f;
     [SerializeField] bool isXmoving;        // checks if it is moving "horizontally"
 
     private Vector3 moveDirection = Vector3.zero;
