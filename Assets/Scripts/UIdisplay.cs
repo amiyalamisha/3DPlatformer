@@ -8,10 +8,12 @@ public class UIdisplay : MonoBehaviour
     [SerializeField] PlayerManager player;
 
     public GameObject scoreTxt;
-    private int scoreNum;
+
+    public AudioSource music;
+
     void Start()
     {
-        
+        music.Play(); 
     }
 
 

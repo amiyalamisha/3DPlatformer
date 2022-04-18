@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyBehavior : MonoBehaviour
 {
+    public AudioSource attackSnd;
     private Animator animator;
     Rigidbody rigid;
 
@@ -31,25 +32,9 @@ public class EnemyBehavior : MonoBehaviour
             xSpeed = 0.0f;
         }
     }
-
-    private void FixedUpdate()
-    {/*
-        moveDirection = new Vector3(xSpeed, 0.0f, ySpeed);
-        moveDirection *= speed;
-        transform.position = moveDirection;
-        */
-        // Apply gravity
-        //moveDirection.y -= gravity * Time.fixedDeltaTime;
-    }
     
     void Update()
     {
-        /*
-        moveDirection = new Vector3(xSpeed, 0.0f, ySpeed);
-        moveDirection *= speed;
-        transform.position = moveDirection;
-        */
-
         rigid.velocity = new Vector3(xSpeed, 0, ySpeed);
     }
 
@@ -71,5 +56,19 @@ public class EnemyBehavior : MonoBehaviour
             }
             
         }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            animator.SetBool("attack", true);
+            attackSnd.PlayOneShot(attackSnd.clip, 1.0f);
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        animator.SetBool("attack", false);
     }
 }
