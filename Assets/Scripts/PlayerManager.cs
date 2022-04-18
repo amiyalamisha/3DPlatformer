@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
+    [SerializeField] UIdisplay display;
+
     public int score = 0;
 
     void Start()
@@ -22,6 +24,8 @@ public class PlayerManager : MonoBehaviour
         {
             Destroy(other.gameObject);
             score++;
+
+            display.UpdateScore();
         }
     }
 }

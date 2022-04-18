@@ -494,7 +494,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 269276937}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.043129303, y: 0.07981874, z: 0.15856123}
@@ -609,6 +609,7 @@ GameObject:
   - component: {fileID: 431700316}
   - component: {fileID: 431700315}
   - component: {fileID: 431700314}
+  - component: {fileID: 431700318}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -698,6 +699,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &431700318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431700313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afafcd62852f53e4faa2bd08eac551a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 786313253}
+  scoreTxt: {fileID: 1430727209}
 --- !u!1001 &447054609
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -759,7 +774,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6490136728237138907, guid: b3d22c566a40cfe45bfc575a822257f4, type: 3}
       propertyPath: m_Name
-      value: animal_people_wolf_1
+      value: player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3d22c566a40cfe45bfc575a822257f4, type: 3}
@@ -1103,6 +1118,20 @@ MonoBehaviour:
   speed: 6
   jumpSpeed: 8
   gravity: 20
+--- !u!114 &786313253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 786313250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da9a9b66c4470804298ec10cc76baa61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  display: {fileID: 431700318}
+  score: 0
 --- !u!1 &793664871
 GameObject:
   m_ObjectHideFlags: 0
@@ -2181,6 +2210,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: f1c3f8e347f55f44e98e7ea73efac66e, type: 3}
       propertyPath: m_Name
       value: flower05
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: f1c3f8e347f55f44e98e7ea73efac66e, type: 3}
+      propertyPath: m_TagString
+      value: flower
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f1c3f8e347f55f44e98e7ea73efac66e, type: 3}
       propertyPath: m_RootOrder
