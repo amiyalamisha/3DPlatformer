@@ -4,19 +4,16 @@ using UnityEngine;
 
 public class EnemyBehavior : MonoBehaviour
 {
-    public AudioSource attackSnd;
+    public AudioSource attackSnd;       // attacking sound effect
     private Animator animator;
     Rigidbody rigid;
 
-    [SerializeField] float speed = 4.0f;
     [SerializeField] bool isXmoving;        // checks if it is moving "horizontally"
 
-    private Vector3 moveDirection = Vector3.zero;
-
     // x and y speed values
-    private float xSpeed = 4.0f;
-    private float ySpeed = 4.0f;
-
+    private float xSpeed;
+    private float ySpeed;
+    [SerializeField] float speed = 4.0f;
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -26,47 +23,41 @@ public class EnemyBehavior : MonoBehaviour
         if (isXmoving)
         {
             ySpeed = 0.0f;
+            xSpeed = speed;
         }
         else
         {
             xSpeed = 0.0f;
+            ySpeed = speed;
         }
     }
     
     void Update()
     {
-        rigid.velocity = new Vector3(xSpeed, 0, ySpeed);
+        rigid.velocity = new Vector3(xSpeed, 0, ySpeed);        // automatically moving with the rigidbody
     }
 
+    // when the enemy hits the invisible enemy bounds it bounces off
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Ebounds")
         {
-            //speed *= -1;
             xSpeed *= -1;
-            ySpeed *= -1;
-
-            if(speed < 0)
-            {
-                animator.SetBool("reverse", true);
-            }
-            else
-            {
-                animator.SetBool("reverse", false);
-            }
-            
+            ySpeed *= -1; 
         }
     }
 
+    // when colliding with the player the enemy attacks and plays attacking sound
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "Player")
         {
             animator.SetBool("attack", true);
-            attackSnd.PlayOneShot(attackSnd.clip, 1.0f);
+            attackSnd.PlayOneShot(attackSnd.clip, 1.0f);    // play attacking sound
         }
     }
 
+    // attacking stops when not colliding anymore
     private void OnCollisionExit(Collision collision)
     {
         animator.SetBool("attack", false);

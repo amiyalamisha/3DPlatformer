@@ -4,42 +4,23 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
+    public AudioSource pickSnd;         // sound effect for picking flower
     [SerializeField] UIdisplay display;
     [SerializeField] CharacterControllerMove charControl;
 
-    public int score = 0;
+    public int score = 0;       // keeping track of score & number of flowers picked
 
-    public Material defaultMat;
-    public Material redMat;
 
-    void Start()
-    {
-        defaultMat = gameObject.GetComponent<MeshRenderer>().material; 
-    }
-
-    void Update()
-    {
-        
-    }
-
+    // triggering the flowers
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "flower")
         {
-            Destroy(other.gameObject);
-            score++;
+            Destroy(other.gameObject);      // when player hits a flower it deletes the flower object
+            pickSnd.PlayOneShot(pickSnd.clip, 1.0f);        // plays a sound effect to show you picked it
 
-            display.UpdateScore();
-        }
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "enemy")
-        {
-            //charControl.moveDirection.y = charControl.jumpSpeed;
-
-            gameObject.GetComponent<MeshRenderer>().material = redMat;
+            score++;        // adds to the score
+            display.UpdateScore();          // calls the UpdateScore() function from the UIdisplay class everytime score changes
         }
     }
 }
