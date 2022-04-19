@@ -1,0 +1,25 @@
+CREDITS
+
+*All visual assets are from the free unity asset store*
+
+Player Character:
+"Character Pack: Free Animal people sample"
+https://assetstore.unity.com/packages/3d/characters/humanoids/character-pack-free-animal-people-sample-204568 
+
+Enemies:
+"RPG Monster Duo PBR Polyart"
+https://assetstore.unity.com/packages/3d/characters/creatures/rpg-monster-duo-pbr-polyart-157762#description
+
+Background Props:
+"Low Poly Nature - FREE Vegetation"
+https://assetstore.unity.com/packages/3d/vegetation/low-poly-nature-free-vegetation-134006#description
+
+Collecting Flowers:
+"Lowpoly Flowers"
+https://assetstore.unity.com/packages/3d/vegetation/plants/lowpoly-flowers-47083#description
+
+*All sound effects are from Freesound.org*
+
+*Music is from Zapsplat.com* --
+"Evening Tide – warm, sincere music with piano, nylon string guitar and flute melody, acoustic guitar rhythm, bongos and percussion"
+https://www.zapsplat.com/music/evening-tide-warm-sincere-music-with-piano-nylon-string-guitar-and-flute-melody-acoustic-guitar-rhythm-bongos-and-percussion/
